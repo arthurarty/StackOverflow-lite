@@ -34,6 +34,15 @@ body {
     margin-bottom: 5px;
     padding: 0;
 }
+.sign_in p {
+    font-size: 14px;
+}
+.sign_in a {
+    color : green;
+}
+.sign_in a:hover {
+    color: white;
+}
 .form_input{
     color:white;
     width:250px;

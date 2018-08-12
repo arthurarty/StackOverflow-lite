@@ -96,12 +96,15 @@ ul {
     width: 100%;
     height: 35px; 
 }
+
 a {
     color: white;
 }
+
 a:hover {
     color: #00FFFF;
 }
+
 /*********** columns css ***************************/
 .row {
     display: flex;
@@ -128,9 +131,12 @@ nav {
     margin-right: 0;
     margin-left: 0;
     box-shadow:1px 2px 2px black;
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    z-index: 100;
 }
 nav ul {
-    padding-top : 10px;    
+    padding-top : 6px;    
 }
 
 nav ul li{
@@ -139,22 +145,36 @@ nav ul li{
 }
 nav a {
     text-decoration: none;
-    font-size: 18px;    
+    font-size: 14px;    
 }
 #company_name {
     padding-left:10px;
-    font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
 }
 
 /*************** side navigation ****************/
 .side-nav {
-    border-right: 1px solid black;
-    height: 80%;
+    margin-top:5px;
+    height: 555px;
+    background-color: #f8f9fa;
+    border-right:0.5 solid grey;
+    position: fixed;
+    top: 58px;
 }
-
+.side-nav h2 {
+    color: #262626;
+}
 .side-nav a{
-    color: black;
+    color: #333333;
     text-decoration: none;
     cursor: none;
+}
+.questions li {
+    height: 50px;
+}
+
+.content {
+    position: relative;
+    top: 58px;
+    left: 250px;
 }

@@ -120,6 +120,7 @@ a:hover {
 }
 .col-2-3 {
     width: 80%;
+    width:950px;
 }
 
 /*************   nav css   **************************/
@@ -157,7 +158,6 @@ nav a {
     margin-top:5px;
     height: 555px;
     background-color:#f8f9fa;
-    border-right:1px solid black;
     position: fixed;
     top: 54px;
 }
@@ -172,9 +172,13 @@ nav a {
     padding-right:8px;
     -webkit-padding-start: 0px;
 }
+.questions p {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 120%;
+}
 .questions li {
     height: 50px;
-    width:970px;
     padding-left: 8px;
     padding-top:8px;
     padding-right:8px;
@@ -192,14 +196,14 @@ nav a {
 .question_info {
     color:grey;
     font-size: 85%;
-    margin-top:8px;
-    padding-top:16px;
-    float: right;
+    margin-top:6px;
+    padding-top:8px;
+    padding-left:16px;
 }
 .content {
     position: relative;
     top: 50px;
-    left: 270px;
+    left: 290px;
     background-color: white;
     padding:0;
 }

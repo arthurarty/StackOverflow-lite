@@ -1,4 +1,4 @@
-body {
+#signup {
     /* background-color: #f6c188; */
     background-image: url('../img/bg1.jpg');
     background-size: cover;
@@ -77,6 +77,15 @@ body {
 .row {
     display: flex;
 }
-.row div {
+.col-2 {
     width: 50%;
+}
+.col-3 {
+    width: 33%;
+}
+.col-5 {
+    width: 20%;
+}
+.col-2-3 {
+    width: 80%;
 }

@@ -118,10 +118,7 @@ a:hover {
 .col-5 {
     width: 20%;
 }
-.col-2-3 {
-    width: 80%;
-    width:950px;
-}
+
 
 /*************   nav css   **************************/
 nav {
@@ -204,10 +201,12 @@ nav a {
 }
 .content {
     position: relative;
-    top: 60px;
-    left: 290px;
+    top: 65px;
     background-color: white;
     padding:0;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .content h2 {
     background-color:#e6f3ff;

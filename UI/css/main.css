@@ -119,7 +119,9 @@ a:hover {
     width: 20%;
 }
 
-
+.right {
+    text-align: right;
+}
 /*************   nav css   **************************/
 nav {
     background-color: black;
@@ -193,6 +195,7 @@ nav a {
 }
 
 .question_info {
+    text-align: right;
     color:grey;
     font-size: 85%;
     margin-top:6px;
@@ -201,7 +204,7 @@ nav a {
 }
 .content {
     position: relative;
-    top: 65px;
+    top: 60px;
     background-color: white;
     padding:0;
     width: 80%;

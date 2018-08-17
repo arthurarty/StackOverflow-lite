@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, json
+from flask import Flask, request
 from app.question import Question
 app = Flask(__name__)
 
@@ -18,13 +18,16 @@ def hello_world():
     return str(question.id)
     #return 'Hello, World!'
 
-@app.route('/v1/questions')
+@app.route('/v1/questions' ,methods=['GET', 'POST'])
 def fetch_all_questions():
-    text = ""
-    for x in questions:
-        text = text + ("author is %s date is %s \n" % (questions[x].author, questions[x].date)) 
+    if request.method == 'POST':
+        pass
+    else:
+        text = ""
+        for x in questions:
+            text = text + ("author is %s date is %s \n" % (questions[x].author, questions[x].date)) 
     
-    return text
+        return text
     #return 'Hello, World!'
 
 @app.route('/v1/questions/<int:question_id>/')

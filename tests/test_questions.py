@@ -6,7 +6,7 @@ def test_is_instance_of_question():
 
 def test_has_attribute_id():
     question1 = Question(7, "How to login", "Nangai")
-    assert hasattr(question1, "id")
+    assert hasattr(question1, "user_id")
 
 def test_has_attribute_author():
     question1 = Question(7, "How to login", "Nangai")

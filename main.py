@@ -27,6 +27,12 @@ def fetch_all_questions():
     return text
     #return 'Hello, World!'
 
+@app.route('/v1/questions/<int:question_id>/')
+def fetch_single_question(question_id):
+    text = ""
+    text = text + ("author is %s date is %s \n" % (questions[question_id].author, questions[question_id].date)) 
+    return text
+
 if __name__ == "__main__":
     app.run()
 

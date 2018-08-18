@@ -1,4 +1,4 @@
-from flask import Flask, request, json
+from flask import Flask, request, jsonify
 from app.question import Question
 app = Flask(__name__)
 
@@ -19,16 +19,13 @@ def fetch_all_questions():
         newQuestion = Question(2, request.form['detail'], request.form['author'])
         no = len(questions) + 1
         questions[no] = newQuestion.__dict__
-        output = json.dumps(questions[no])
-        return output
+        return jsonify(questions[no])
     else: 
-        output = json.dumps(questions)
-        return output
+        return jsonify(questions)
 
 @app.route('/v1/questions/<int:question_id>/')
 def fetch_single_question(question_id):
-    output = json.dumps(questions[question_id])
-    return output
+    return jsonify(questions[question_id])
 
 if __name__ == "__main__":
     app.run()

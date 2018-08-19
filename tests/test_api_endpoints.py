@@ -1,13 +1,13 @@
 import http.client
 import pytest
-from app import flaskServer
+from app import serve
 from app.question import Question
 #tests for the api end points
 
 @pytest.fixture
 def client():
-    flaskServer.app.config['TESTING'] = True
-    client = flaskServer.app.test_client()
+    serve.app.config['TESTING'] = True
+    client = serve.app.test_client()
 
     yield client
 

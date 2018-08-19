@@ -1,6 +1,6 @@
 import http.client
 import pytest
-import flaskServer
+from app import flaskServer
 from app.question import Question
 #tests for the api end points
 

@@ -5,23 +5,22 @@ app = Flask(__name__)
 questions = {}
 
 question1 = Question(1, "how to log", "arthur nangai")
-no = len(questions) + 1
-questions[no] = question1.__dict__
+no_of_questions = len(questions) + 1
+questions[no_of_questions] = question1.__dict__
 
 question2 = Question(2, "how to bog", "arthur bark")
-no = len(questions) + 1
-questions[no] = question2.__dict__
+no_of_questions = no_of_questions + 1
+questions[no_of_questions] = question2.__dict__
 
 #fetch all questsion
-@app.route('/v1/questions' ,methods=['GET', 'POST'])
+@app.route('/v1/questions', methods=['GET', 'POST'])
 def fetch_all_questions():
     if request.method == 'POST':
-        newQuestion = Question(2, request.form['detail'], request.form['author'])
-        no = len(questions) + 1
-        questions[no] = newQuestion.__dict__
-        return jsonify(questions[no])
-    else: 
-        return jsonify(questions)
+        new_question = Question(2, request.form['detail'], request.form['author'])
+        no_of_question = len(questions) + 1
+        questions[no_of_question] = new_question.__dict__
+        return jsonify(questions[no_of_question])
+    return jsonify(questions)
 
 #get single question
 @app.route('/v1/questions/<int:question_id>/')

@@ -8,23 +8,41 @@ def fetch_all_questions():
 
     if request.method == 'POST':
         new_question = Question(2, request.form['detail'], request.form['author'])
-        add_question(new_question)
+        output = add_question(new_question)
+        resp = jsonify(output)
+        resp.status_code = 201
+        return resp
 
     output = return_questions()
-    return jsonify(output)
+    resp = jsonify(output)
+    resp.status_code = 200
+    return resp
 
 #get single question
 @app.route('/v1/questions/<int:question_id>/')
 def fetch_single_question(question_id):
     output = return_single_question(question_id)
-    return jsonify(output)
+   
+    if output == 0:
+        output = {
+            'message': 'Question Not Found: ' + request.url,
+        }
+        resp = jsonify(output)
+        resp.status_code = 404
+        return resp
+
+    resp = jsonify(output)
+    resp.status_code = 200
+    return resp
 
 #add answer to question
 @app.route('/v1/questions/<int:question_id>/answers', methods=['POST'])
 def add_answer_to_question(question_id):
     answer = request.form['answer']
     output = add_answer(question_id, answer)
-    return jsonify(output)
+    resp = jsonify(output)
+    resp.status_code = 200
+    return resp
 
 if __name__ == "__main__":
     app.run()

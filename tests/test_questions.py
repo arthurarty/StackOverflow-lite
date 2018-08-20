@@ -1,9 +1,11 @@
 from app.question import Question, add_answer, add_question, return_questions, return_single_question
 
+#application has to start with empty dictionary
 def test_empty_dictionary():
     all_questions = return_questions()
     assert b'author' not in all_questions
 
+#each question must be an instance of the question class
 def test_is_instance_of_question():
     new_question = Question(5, "Hello there", "Nangai")
     assert isinstance(new_question, Question)

@@ -13,25 +13,31 @@ def client():
 
 #tests get /questions end point
 def test_fetch_all_question(client):
-    rv = client.get('/v1/questions')
-    assert b'author' not in rv.data
+    resp = client.get('/v1/questions')
+    assert b'author' not in resp.data
 
 #tests post /questions 
 def test_add_question(client):
-    rv = client.post('/v1/questions', data=dict(
+    resp = client.post('/v1/questions', data=dict(
         detail= "big man",
         author = "arty arty"
     ))
-    assert b'arty arty' in rv.data
+    assert b'arty arty' in resp.data
+    assert resp.status_code == 201
 
 #test get /questions/<question_id>
 def test_fetch_single_question(client):
-    rv=client.get('/v1/questions/1/')
-    assert b'author' in rv.data
+    resp=client.get('/v1/questions/1/')
+    assert b'author' in resp.data
 
 #test post /questions/<question_id>/answers
 def test_adding_answer_to_question(client):
-    rv = client.post('/v1/questions/1/answers', data=dict(
+    resp = client.post('/v1/questions/1/answers', data=dict(
         answer = "this is how to"
     ))
-    assert b'this is how to' in rv.data
+    assert b'this is how to' in resp.data
+
+#test for response 404
+def test_status_not_found(client):
+    resp=client.get('/v1/questions/4/')
+    assert resp.status_code == 404

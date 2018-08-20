@@ -14,7 +14,7 @@ def client():
 #tests get /questions end point
 def test_fetch_all_question(client):
     rv = client.get('/v1/questions')
-    assert b'author' in rv.data
+    assert b'author' not in rv.data
 
 #tests post /questions 
 def test_add_question(client):

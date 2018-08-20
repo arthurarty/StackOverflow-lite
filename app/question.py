@@ -23,13 +23,13 @@ def return_questions():
     return questions
 
 #method to return a single question.
-def return_single_question(id):
-    if id in questions:
-        return questions[id]
+def return_single_question(question_id):
+    if question_id in questions:
+        return questions[question_id]
     return 0
 
 #add answer
-def add_answer(id, answer):
-    question = questions[id]
+def add_answer(question_id, answer):
+    question = questions[question_id]
     question['answers'].append(answer)
-    return questions[id]
+    return questions[question_id]

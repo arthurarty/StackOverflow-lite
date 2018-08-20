@@ -25,6 +25,11 @@ def test_add_question(client):
     assert b'arty arty' in resp.data
     assert resp.status_code == 201
 
+#test response to empty input
+def test_empty_input(client):
+    resp = client.post('/v1/questions')
+    assert resp.status_code == 400
+
 #test get /questions/<question_id>
 def test_fetch_single_question(client):
     resp=client.get('/v1/questions/1/')

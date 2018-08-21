@@ -54,7 +54,8 @@ def test_fetch_single_question(client):
 #test post /questions/<question_id>/answers
 def test_adding_answer_to_question(client):
     resp = client.post('/v1/questions/1/answers', data=dict(
-        answer = "this is how to"
+        answer = "this is how to",
+        author = "arty"
     ))
     assert b'this is how to' in resp.data
 
@@ -66,7 +67,8 @@ def test_status_not_found(client):
 #test status code 404 on /questions/<id>/answer
 def test_adding_answer_to_non_existent_question(client):
     resp = client.post('/v1/questions/4/answers', data=dict(
-        answer = "this is how to"
+        answer = "this is how to",
+        author = "arty"
     ))
     assert resp.status_code == 404
 

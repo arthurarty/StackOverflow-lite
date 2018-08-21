@@ -1,4 +1,5 @@
 from datetime import datetime
+from app.answer import Answer
 
 class Question:
 
@@ -29,9 +30,9 @@ def return_single_question(question_id):
     return 0
 
 #add answer
-def add_answer(question_id, answer):
-    if question_id in questions:
-        question = questions[question_id]
-        question['answers'].append(answer)
-        return questions[question_id]
+def add_answer(Answer):
+    if Answer.question_id in questions:
+        question = questions[Answer.question_id]
+        question['answers'].append(Answer.__dict__)
+        return questions[Answer.question_id]
     return 0

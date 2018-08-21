@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 from app.question import Question, return_questions, add_question, return_single_question, add_answer
+from app.answer import Answer
+
 app = Flask(__name__)
 
 #fetch all questsions and add new question
@@ -51,9 +53,9 @@ def fetch_single_question(question_id):
 #add answer to question
 @app.route('/v1/questions/<int:question_id>/answers', methods=['POST'])
 def add_answer_to_question(question_id):
-    answer = request.form['answer']
-    output = add_answer(question_id, answer)
-    
+    new_answer = Answer(question_id, request.form['answer'], request.form['author'])
+    output = add_answer(new_answer)
+
     if output == 0:
         output = {
             'message': 'Question Not Found so cant add comment: ' + request.url,

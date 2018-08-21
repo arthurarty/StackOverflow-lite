@@ -76,3 +76,20 @@ def test_adding_answer_to_non_existent_question(client):
 def test_adding_empty_answer(client):
     resp = client.post('/v1/questions/4/answers')
     assert resp.status_code == 400
+
+#test empty author sent to /v1/questions/<questions_id>/answers
+def test_empty_post_author_answer(client):
+
+    resp = client.post('/v1/questions/1/answers', data=dict(
+        detail= "big man",
+        author = ""
+    ))
+    assert resp.status_code == 400
+
+#test empty detail field sent to /v1/questions/1/answers
+def test_empty_post_detail_answer(client):
+    resp = client.post('/v1/questions/1/answers', data=dict(
+        detail= "",
+        author = "arthur"
+    ))
+    assert resp.status_code == 400

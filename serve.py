@@ -12,7 +12,7 @@ def fetch_all_questions():
     if request.method == 'POST':
 
         #check if length of author field
-        if len(request.form['author']) > 0 and len(request.form['detail']):
+        if len(request.form['author']) > 0 and len(request.form['detail']) > 0:
             new_question = Question(2, request.form['detail'], request.form['author'])
             output = add_question(new_question)
             resp = jsonify(output)
@@ -53,19 +53,28 @@ def fetch_single_question(question_id):
 #add answer to question
 @app.route('/v1/questions/<int:question_id>/answers', methods=['POST'])
 def add_answer_to_question(question_id):
-    new_answer = Answer(question_id, request.form['answer'], request.form['author'])
-    output = add_answer(new_answer)
+    
+    if len(request.form['author']) > 0 and len(request.form['answer']) > 0:
+        new_answer = Answer(question_id, request.form['answer'], request.form['author'])
+        output = add_answer(new_answer)
+          
+        if output == 0:
+            output = {
+                'message': 'Question Not Found so cant add comment: ' + request.url,
+            }
+            resp = jsonify(output)
+            resp.status_code = 404
+            return resp
 
-    if output == 0:
-        output = {
-            'message': 'Question Not Found so cant add comment: ' + request.url,
-        }
         resp = jsonify(output)
-        resp.status_code = 404
+        resp.status_code = 200
         return resp
 
+    output = {
+                'message': 'Author field or details field is empty'
+            }
     resp = jsonify(output)
-    resp.status_code = 200
+    resp.status_code = 400
     return resp
 
 if __name__ == "__main__":

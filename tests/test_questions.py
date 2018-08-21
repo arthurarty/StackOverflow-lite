@@ -1,5 +1,5 @@
 from app.question import Question, add_answer, add_question, return_questions, return_single_question
-
+import pytest
 #application has to start with empty dictionary
 def test_empty_dictionary():
     all_questions = return_questions()
@@ -26,5 +26,12 @@ def test_has_attribute_list():
     new_question = Question(7, "How to login", "Nangai")
     assert hasattr(new_question, "answers")
 
+def test_type_error_question():
+    with pytest.raises(TypeError):
+        other_question = "object"
+        add_question(other_question)
 
-
+def test_type_error_answer():
+    with pytest.raises(TypeError):
+        other_answer = "object"
+        add_answer(other_answer)

@@ -1,6 +1,8 @@
 # StackOverflow-lite [![Build Status](https://travis-ci.com/arthurarty/StackOverflow-lite.svg?branch=adding_travisci)](https://travis-ci.com/arthurarty/StackOverflow-lite)[![Coverage Status](https://coveralls.io/repos/github/arthurarty/StackOverflow-lite/badge.svg?branch=adding_travisci)](https://coveralls.io/github/arthurarty/StackOverflow-lite?branch=adding_travisci)[![Maintainability](https://api.codeclimate.com/v1/badges/828b6882314c6596651d/maintainability)](https://codeclimate.com/github/arthurarty/StackOverflow-lite/maintainability)
 Andela Developer Challenge
 To view user interface visit the link https://arthurarty.github.io/StackOverflow-lite/UI/
+Link to application on Heroku: https://arthurnangaistackoverflow.herokuapp.com/v1/
+Link to pivotal tracker: https://www.pivotaltracker.com/n/projects/2189768
 
 Project Overview
 StackOverflow-lite is a platform where people can ask questions and provide answers. 

@@ -53,6 +53,15 @@ def fetch_single_question(question_id):
 def add_answer_to_question(question_id):
     answer = request.form['answer']
     output = add_answer(question_id, answer)
+    
+    if output == 0:
+        output = {
+            'message': 'Question Not Found so cant add comment: ' + request.url,
+        }
+        resp = jsonify(output)
+        resp.status_code = 404
+        return resp
+
     resp = jsonify(output)
     resp.status_code = 200
     return resp

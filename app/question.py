@@ -30,6 +30,8 @@ def return_single_question(question_id):
 
 #add answer
 def add_answer(question_id, answer):
-    question = questions[question_id]
-    question['answers'].append(answer)
-    return questions[question_id]
+    if question_id in questions:
+        question = questions[question_id]
+        question['answers'].append(answer)
+        return questions[question_id]
+    return 0

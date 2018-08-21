@@ -25,9 +25,25 @@ def test_add_question(client):
     assert b'arty arty' in resp.data
     assert resp.status_code == 201
 
-#test response to empty input
+#test empty post to /v1/questions
 def test_empty_input(client):
     resp = client.post('/v1/questions')
+    assert resp.status_code == 400
+
+#test empty author sent to /v1/questions
+def test_empty_author(client):
+    resp = client.post('/v1/questions', data=dict(
+        detail= "big man",
+        author = ""
+    ))
+    assert resp.status_code == 400
+
+#test empty detail field sent to /v1/questions
+def test_empty_detail(client):
+    resp = client.post('/v1/questions', data=dict(
+        detail= "",
+        author = "arthur"
+    ))
     assert resp.status_code == 400
 
 #test get /questions/<question_id>
@@ -46,3 +62,15 @@ def test_adding_answer_to_question(client):
 def test_status_not_found(client):
     resp=client.get('/v1/questions/4/')
     assert resp.status_code == 404
+
+#test status code 404 on /questions/<id>/answer
+def test_adding_answer_to_non_existent_question(client):
+    resp = client.post('/v1/questions/4/answers', data=dict(
+        answer = "this is how to"
+    ))
+    assert resp.status_code == 404
+
+#post to /v1/questions/<question_id>/answer without body
+def test_adding_empty_answer(client):
+    resp = client.post('/v1/questions/4/answers')
+    assert resp.status_code == 400

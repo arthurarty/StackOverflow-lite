@@ -1,7 +1,6 @@
 """The module contains the Question class and the logic to add questions to a dictionary for 
 storage"""
 from datetime import datetime
-from app.answer import Answer
 
 class Question:
 

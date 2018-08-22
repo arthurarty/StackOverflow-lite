@@ -1,4 +1,5 @@
-from app.question import Question, add_answer, add_question, return_questions, return_single_question
+from app.question import Question
+from app.question_store import add_answer, add_question, return_questions, return_single_question
 import pytest
 #application has to start with empty dictionary
 def test_empty_dictionary():

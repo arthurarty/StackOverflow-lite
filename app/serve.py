@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
-from app.question import Question, return_questions, add_question, return_single_question
-from app.question import add_answer
+from app.question import Question
 from app.answer import Answer
+from app.question_store import return_questions, add_question, return_single_question
+from app.question_store import add_answer
 
 app = Flask(__name__)
 """route /v1/questions allows two methods get and post. 
@@ -74,7 +75,3 @@ def add_answer_to_question(question_id):
     resp = jsonify(output)
     resp.status_code = 400
     return resp
-
-if __name__ == "__main__":
-    app.run()
-

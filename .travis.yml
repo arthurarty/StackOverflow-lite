@@ -3,6 +3,7 @@ python:
 - '3.6'
 before_script:
 - pip3 install -r requirements.txt
+- python app\config.py
 script:
 - python -m pytest -v --cov tests --cov-report term-missing
 after_success:

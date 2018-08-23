@@ -93,6 +93,14 @@ def test_empty_post_detail_answer(client):
         author = "arthur"
     ))
     assert resp.status_code == 400
+
+def test_user_creation(client):
+    resp = client.post('/auth/signup', data=dict(
+        email = "test@test.com",
+        name = "test test", 
+        password = "test"
+    ))
+    assert b'test@test.com' in resp.data
     
 
     

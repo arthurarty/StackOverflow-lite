@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from app.question import Question
 from app.answer import Answer
 from app.stack import Stack
+from app.user import User
 
 app = Flask(__name__)
 """route /v1/questions allows two methods get and post. 
@@ -76,5 +77,14 @@ def add_answer_to_question(question_id):
     resp = jsonify(output)
     resp.status_code = 400
     return resp
+
+@app.route('/auth/signup', methods=['POST'])
+def add_user():
+    if request.form['email'] and request.form['name'] and request.form['password']:
+        new_user = User(request.form['email'], request.form['name'], request.form['password'])
+        output = new_user.add_user_to_db()
+        resp = jsonify(output)
+        resp.status_code = 201
+        return resp
 
 

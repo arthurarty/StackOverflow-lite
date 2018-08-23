@@ -1,7 +1,9 @@
 """The module contains the Stack class and the logic to add questions"""
 from app.answer import Answer
 from app.question import Question
-
+import psycopg2
+conn = psycopg2.connect("dbname=postgres user=postgres password=asP2#fMe")
+cur = conn.cursor()
 class Stack:
     def __init__(self, name):
         self.name = name
@@ -39,3 +41,5 @@ class Stack:
         return 0
 
 
+
+conn.close

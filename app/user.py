@@ -1,6 +1,6 @@
 """the User class reupresents a user of the system."""
 import psycopg2
-conn = psycopg2.connect("dbname=postgres user=postgres password=asP2#fMe")
+conn = psycopg2.connect("dbname=stack user=postgres")
 
 
 

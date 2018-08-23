@@ -1,7 +1,9 @@
 """This file sets up the database"""
+import os
 import psycopg2
-
-conn = psycopg2.connect("dbname=stack user=postgres")
+#conn = psycopg2.connect("dbname=stack user=postgres")
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 cur = conn.cursor()
 

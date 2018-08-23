@@ -37,3 +37,5 @@ class Stack:
             return self.questions[new_answer.question_id]
 
         return 0
+
+

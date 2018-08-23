@@ -1,3 +1,4 @@
+"""api flask application logic"""
 from flask import Flask, request, jsonify
 from app.question import Question
 from app.answer import Answer
@@ -75,3 +76,5 @@ def add_answer_to_question(question_id):
     resp = jsonify(output)
     resp.status_code = 400
     return resp
+
+

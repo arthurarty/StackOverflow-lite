@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 from app.question import Question
 from app.answer import Answer
-#from app.question_store import return_questions, add_question, return_single_question
-#from app.question_store import add_answer
 from app.stack import Stack
 
 app = Flask(__name__)

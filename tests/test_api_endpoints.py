@@ -93,3 +93,4 @@ def test_empty_post_detail_answer(client):
         author = "arthur"
     ))
     assert resp.status_code == 400
+    

@@ -1,5 +1,4 @@
-"""The module contains the Question class and the logic to add questions to a dictionary for 
-storage"""
+"""The module contains the Question class"""
 from datetime import datetime
 
 class Question:
@@ -18,4 +17,3 @@ class Question:
     """returns user id"""
     def return_user_id(self):
         return self.author
-

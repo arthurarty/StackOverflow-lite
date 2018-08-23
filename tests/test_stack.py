@@ -18,3 +18,4 @@ def test_type_error_answer():
         new_stack = Stack("this is this")
         other_answer = "object"
         new_stack.add_answer(other_answer)
+        

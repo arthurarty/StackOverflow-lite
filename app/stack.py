@@ -1,3 +1,4 @@
+"""The module contains the Stack class and the logic to add questions"""
 from app.answer import Answer
 from app.question import Question
 

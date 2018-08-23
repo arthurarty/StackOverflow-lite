@@ -16,3 +16,4 @@ def test_has_attribute_author():
 def test_has_attribute_date():
     new_answer = Answer(7, "Log in by", "Nangai")
     assert hasattr(new_answer, "date")
+    

@@ -1,6 +1,6 @@
 import http.client
 import pytest
-import app.flaskServer as serve
+import app.views as serve
 from app.question import Question
 #tests for the api end points
 

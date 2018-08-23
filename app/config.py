@@ -1,7 +1,7 @@
 """This file sets up the database"""
 import psycopg2
 
-conn = psycopg2.connect("dbname=postgres user=postgres password=asP2#fMe")
+conn = psycopg2.connect("dbname=stack user=postgres")
 
 cur = conn.cursor()
 
